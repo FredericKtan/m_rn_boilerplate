@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import styles from "./styles";
+import images from "../../config/images";
 
 import Button from "../../components/Button";
 import Input, { InputWrapper } from "../../components/Input";
@@ -16,12 +17,31 @@ export default class SignIn extends React.Component {
 	render() {
 		return (
 			<View style={ styles.container }>
+				<View style={ styles.header }>
+					<Image
+						style={ styles.logo }
+						source={ images.logo }
+					/>
+					<Text style={ styles.headerText }>Cooking Ap'</Text>
+				</View>
 				<InputWrapper>
 					<Input placeholder="Email address" />
 					<Input placeholder="Password" secureTextEntry borderTop />
+					{ this.props.confirmPasswordVisible  ?
+						<Input
+							placeholder="Confirm password"
+							onChangeText={ (confirmPassword) => this.props.updateState({ confirmPassword }) }
+							secureTextEntry
+							borderTop
+						/> : null
+					}
 				</InputWrapper>
-				<View>
-					<Button />
+				<View style={ styles.error }>
+					<Text style={ styles.errorText }> { this.props.error }</Text>
+				</View>
+				<View style={ styles.buttons }>
+					<Button text="Sign In" onPress={ this.props.createAccount } />
+					<Button text="Create Account" onPress={ this.props.createAccount } />
 				</View>
 				<KeyboardSpacer />
 			</View>				

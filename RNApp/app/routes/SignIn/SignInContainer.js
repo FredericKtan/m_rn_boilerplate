@@ -1,6 +1,6 @@
 import React from "react";
 import SignIn from "./SignIn";
-
+import { LayoutAnimation } from "react-native";
 import Meteor from "react-native-meteor";
 
 export default class SignInContainer extends React.Component {

@@ -16,7 +16,7 @@ export default StyleSheet.create({
 	},
 	divider: {
 		height: 1,
-		backgroundColor: colors.lightBlack,
+		backgroundColor: colors.brown,
 		flex: 1,
 		marginLeft: 10,
 		marginRight: 10
